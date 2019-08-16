@@ -5,14 +5,16 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name="tb_user")
 public class User {
@@ -47,108 +49,63 @@ public class User {
 	private LocalDateTime regDtm;
 
 	@Transient
-	@OneToMany
+	@OneToMany(targetEntity = Order.class)
 	@JoinColumn(name = "userId", referencedColumnName = "userId")
 	private List<Order> orderList;
 	
 	@Transient
 	@OneToMany(targetEntity = Donation.class)
-	@JoinColumn(referencedColumnName = "userId")
-	private List<Donation> donationList;
+	@JoinColumn(name = "fromId", referencedColumnName = "userId")
+	private List<Donation> fromIdList;
 	
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	public String getNickNm() {
-		return nickNm;
-	}
-
-	public void setNickNm(String nickNm) {
-		this.nickNm = nickNm;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	public String getProfile() {
-		return profile;
-	}
-
-	public void setProfile(String profile) {
-		this.profile = profile;
-	}
-
-	public String getGrade() {
-		return grade;
-	}
-
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
+	@Transient
+	@OneToMany(targetEntity = Donation.class)
+	@JoinColumn(name = "toId", referencedColumnName = "userId")
+	private List<Donation> toIdList;
 	
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public long getPoint() {
-		return point;
-	}
-
-	public void setPoint(long point) {
-		this.point = point;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public LocalDateTime getRegDtm() {
-		return regDtm;
-	}
-
-	public void setRegDtm(LocalDateTime regDtm) {
-		this.regDtm = regDtm;
-	}
+	@Transient
+	@OneToMany(targetEntity = EmployeeLike.class)
+	@JoinColumn(name = "userId", referencedColumnName = "userId")
+	private List<EmployeeLike> employeeLikeUserIdList;
 	
-	public List<Order> getOrderList() {
-		return orderList;
-	}
-
-	public void setOrderList(List<Order> orderList) {
-		this.orderList = orderList;
-	}
+	@Transient
+	@OneToMany(targetEntity = EmployeeLike.class)
+	@JoinColumn(name = "employeeUserId", referencedColumnName = "userId")
+	private List<EmployeeLike> employeeLikeEmployeeUserIdList;
 	
-	public List<Donation> getDonationList() {
-		return donationList;
-	}
+	@Transient
+	@OneToMany(targetEntity = EmployeeStar.class)
+	@JoinColumn(name = "userId", referencedColumnName = "userId")
+	private List<EmployeeStar> employeeStarUserIdList;
+	
+	@Transient
+	@OneToMany(targetEntity = EmployeeStar.class)
+	@JoinColumn(name = "employeeUserId", referencedColumnName = "userId")
+	private List<EmployeeStar> employeeStarEmployeeUserIdList;
+	
+	@Transient
+	@OneToMany(targetEntity = Contents.class)
+	@JoinColumn(name = "userId", referencedColumnName = "userId")
+	private List<Contents> contentsList;
 
-	public void setDonationList(List<Donation> donationList) {
-		this.donationList = donationList;
-	}
+	@Transient
+	@OneToMany(targetEntity = EnterpriseLike.class)
+	@JoinColumn(name = "userId", referencedColumnName = "userId")
+	private List<EnterpriseLike> enterpriseLikeList;
+	
+	@Transient
+	@OneToMany(targetEntity = EnterpriseStar.class)
+	@JoinColumn(name = "userId", referencedColumnName = "userId")
+	private List<EnterpriseStar> enterpriseStarList;
+	
+	@Transient
+	@ManyToOne(targetEntity = PushNotification.class)
+	@JoinColumn(name = "sender", referencedColumnName = "userId")
+	private List<PushNotification> PushNotificationSenderList;
+	
+	@Transient
+	@ManyToOne(targetEntity = PushNotification.class)
+	@JoinColumn(name = "reciever", referencedColumnName = "userId")
+	private List<PushNotification> PushNotificationRecieverList;
+	
 }

@@ -8,11 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name="tb_donation")
 public class Donation {
@@ -35,58 +36,11 @@ public class Donation {
 	private LocalDateTime regDtm;
 
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="fromId", referencedColumnName = "userId", insertable = false, updatable = false),
-		@JoinColumn(name="toId", referencedColumnName = "userId", insertable = false, updatable = false)
-	})
-	private User user;
+	@JoinColumn(name="fromId", referencedColumnName = "userId", insertable = false, updatable = false)
+	private User userFromId;
 	
-	public int getIdx() {
-		return idx;
-	}
-
-	public void setIdx(int idx) {
-		this.idx = idx;
-	}
+	@ManyToOne
+	@JoinColumn(name="toId", referencedColumnName = "userId", insertable = false, updatable = false)
+	private User userToId;
 	
-	public String getFromId() {
-		return fromId;
-	}
-
-	public void setFromId(String fromId) {
-		this.fromId = fromId;
-	}
-
-	public String getToId() {
-		return toId;
-	}
-
-	public void setToId(String toId) {
-		this.toId = toId;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public LocalDateTime getRegDtm() {
-		return regDtm;
-	}
-
-	public void setRegDtm(LocalDateTime regDtm) {
-		this.regDtm = regDtm;
-	}
-
 }

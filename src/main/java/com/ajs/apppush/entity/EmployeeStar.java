@@ -1,7 +1,5 @@
 package com.ajs.apppush.entity;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,33 +13,27 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="tb_order")
-public class Order {
-	
+@Table(name="tb_employee_star")
+public class EmployeeStar {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idx;
+	
+	@Column(length = 100)
+	private String employeeUserId;
 	
 	@Column(length = 100)
 	private String userId;
 	
-	private int price;
+	private int star;
 	
-	@Column(length = 50)
-	private String device;
-	
-	@Column(length = 100)
-	private String iniKey;
-	
-	private LocalDateTime regDtm;
-	
-	private LocalDateTime approvalDtm;
-	
-	@Column(length = 20)
-	private String status;
-
 	@ManyToOne
 	@JoinColumn(name = "userId", referencedColumnName = "userId", insertable = false, updatable = false)
-	private User user;
+	private User userUserId;
 	
+	@ManyToOne
+	@JoinColumn(name = "employeeUserId", referencedColumnName = "userId", insertable = false, updatable = false)
+	private User userEmployeeUserId;
+
 }
