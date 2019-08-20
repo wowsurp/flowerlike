@@ -1,6 +1,7 @@
 package com.ajs.apppush.entity;
 
-import java.time.LocalDateTime;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -31,7 +32,8 @@ public class Enterprise {
 	@Column(length = 200)
 	private String thumbnail;
 	
-	private LocalDateTime regDtm;
+	@Column(columnDefinition="char(19)")
+	private String regDtm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 	
 	@Column(length = 1000)
 	private String intro;

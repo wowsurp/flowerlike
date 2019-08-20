@@ -1,6 +1,7 @@
 package com.ajs.apppush.entity;
 
-import java.time.LocalDate;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,7 +36,8 @@ public class Contents {
 	
 	private int priority;
 	
-	private LocalDate regDtm;
+	@Column(columnDefinition="char(19)")
+	private String regDtm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 	
 	@ManyToOne
 	@JoinColumn(name = "userId", referencedColumnName = "userId", insertable = false, updatable = false)

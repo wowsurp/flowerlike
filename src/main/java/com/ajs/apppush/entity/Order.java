@@ -1,6 +1,7 @@
 package com.ajs.apppush.entity;
 
-import java.time.LocalDateTime;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,9 +34,11 @@ public class Order {
 	@Column(length = 100)
 	private String iniKey;
 	
-	private LocalDateTime regDtm;
+	@Column(columnDefinition="char(19)")
+	private String regDtm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 	
-	private LocalDateTime approvalDtm;
+	@Column(columnDefinition="char(19)")
+	private String approvalDtm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 	
 	@Column(length = 20)
 	private String status;

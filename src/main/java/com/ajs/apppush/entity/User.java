@@ -1,6 +1,7 @@
 package com.ajs.apppush.entity;
 
-import java.time.LocalDateTime;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,9 +13,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import lombok.Data;
 
 @Data
+@DynamicUpdate
 @Entity
 @Table(name="tb_user")
 public class User {
@@ -46,7 +50,8 @@ public class User {
 	@Column(columnDefinition = "char(1)")
 	private String status;
 	
-	private LocalDateTime regDtm;
+	@Column(columnDefinition="char(19)")
+	private String regDtm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
 	@Transient
 	@OneToMany(targetEntity = Order.class)
