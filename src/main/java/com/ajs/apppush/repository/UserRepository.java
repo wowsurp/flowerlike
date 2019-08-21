@@ -7,6 +7,4 @@ import com.ajs.apppush.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, String>{
-
-	public User findByUserId(String userId);
 }

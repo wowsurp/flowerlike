@@ -1,9 +1,14 @@
-schema {
-	query: Query
+type Query {
+	fetchAllUser: [User]
 }
 
-type Query {
-	user(userId: String): User
+type Mutation {
+	saveUser(user: UserInput) : User
+}
+
+input UserInput {
+	userId: String
+	nickNm: String
 }
 
 type User {
@@ -17,4 +22,6 @@ type User {
 	point: Long
 	status: String
 	regDtm: String
+	device: String
+	intro: String
 }

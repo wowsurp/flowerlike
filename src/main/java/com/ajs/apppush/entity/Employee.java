@@ -38,6 +38,18 @@ public class Employee {
 	@Column(length = 300)
 	private String workingHours;
 	
+	@Column(columnDefinition = "char(1)")
+	private String delYn;
+	
+	@Column(columnDefinition = "char(1)")
+	private String hireRequest;
+	
+	@Column(columnDefinition = "char(19)")
+	private String startDtm;
+	
+	@Column(columnDefinition = "char(19)")
+	private String endDtm;
+	
 	@ManyToOne
 	@JoinColumn(name = "enterpriseIdx", referencedColumnName = "idx", insertable = false, updatable = false)
 	private Enterprise enterprise;

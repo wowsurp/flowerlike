@@ -15,11 +15,15 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @DynamicUpdate
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="tb_user")
 public class User {
 
@@ -53,6 +57,12 @@ public class User {
 	@Column(columnDefinition="char(19)")
 	private String regDtm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
+	@Column(length = 100)
+	private String device;
+	
+	@Column(length = 1000)
+	private String intro;
+	
 	@Transient
 	@OneToMany(targetEntity = Order.class)
 	@JoinColumn(name = "userId", referencedColumnName = "userId")
