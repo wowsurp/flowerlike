@@ -1,0 +1,16 @@
+extend type Query{
+	fetchAllEmployee: [Employee]
+}
+
+type Employee {
+	idx : Int
+	enterpriseIdx : Int
+	userId : String
+	nickNm : String
+	introduction : String
+	workingHours : String
+	delYn : String
+	hireRequest : String
+	startDtm : String
+	endDtm : String
+}

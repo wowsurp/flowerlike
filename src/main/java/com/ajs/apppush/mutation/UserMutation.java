@@ -1,4 +1,6 @@
-package com.ajs.apppush.resolver;
+package com.ajs.apppush.mutation;
+
+import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
@@ -8,21 +10,21 @@ import com.ajs.apppush.repository.UserRepository;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 
 @Component
-public class Mutation implements GraphQLMutationResolver{
+public class UserMutation implements GraphQLMutationResolver{
 
 	private UserRepository userRepository;
 	
-	public Mutation(UserRepository userRepository) {
+	public UserMutation(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 	
 	public User saveUser(UserInput userInput) {
 		
-		User user = new User();
+		Optional<User> user = userRepository.findById(userInput.getUserId());
 		
-		user.setUserId(userInput.getUserId());
-		user.setNickNm(userInput.getNickNm());
+		user.get().setUserId(userInput.getUserId());
+		user.get().setNickNm(userInput.getNickNm());
 		
-		return userRepository.save(user);
+		return userRepository.save(user.get());
 	}
 }

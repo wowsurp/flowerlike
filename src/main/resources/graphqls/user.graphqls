@@ -1,0 +1,27 @@
+extend type Query {
+	fetchAllUser: [User]
+}
+
+extend type Mutation {
+	saveUser(user: UserInput) : User
+}
+
+input UserInput {
+	userId: String
+	nickNm: String
+}
+
+type User {
+	userId: String
+	nickNm: String
+	email: String
+	token: String
+	profile: String
+	grade: String
+	type: String
+	point: Long
+	status: String
+	regDtm: String
+	device: String
+	intro: String
+}
