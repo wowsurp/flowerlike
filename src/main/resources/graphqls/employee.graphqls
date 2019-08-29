@@ -1,8 +1,30 @@
-extend type Query{
-	fetchAllEmployee: [Employee]
+extend type Query {
+	getAllEmployee: [Employee]
+}
+
+extend type Mutation {
+	getEmployee(employee: GetEmployeeInput) : Employee
+	saveEmployee(employee: SaveEmployeeInput) : Employee
 }
 
 type Employee {
+	idx : Int
+	enterpriseIdx : Int
+	userId : String
+	nickNm : String
+	introduction : String
+	workingHours : String
+	delYn : String
+	hireRequest : String
+	startDtm : String
+	endDtm : String
+}
+
+input GetEmployeeInput {
+	idx : Int
+}
+
+input SaveEmployeeInput {
 	idx : Int
 	enterpriseIdx : Int
 	userId : String

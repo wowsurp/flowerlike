@@ -1,14 +1,10 @@
 extend type Query {
-	fetchAllUser: [User]
+	getAllUser: [User]
 }
 
 extend type Mutation {
-	saveUser(user: UserInput) : User
-}
-
-input UserInput {
-	userId: String
-	nickNm: String
+	getUser(user: GetUserInput) : User
+	saveUser(user: SaveUserInput) : User
 }
 
 type User {
@@ -24,4 +20,23 @@ type User {
 	regDtm: String
 	device: String
 	intro: String
+}
+
+input SaveUserInput {
+	userId: String
+	nickNm: String
+	email: String
+	token: String
+	profile: String
+	grade: String
+	point: Long
+	type: String
+	status: String
+	regDtm: String
+	device: String
+	intro: String
+}
+
+input GetUserInput {
+	userId: String
 }

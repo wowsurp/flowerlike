@@ -17,7 +17,7 @@ public class UserQuery implements GraphQLQueryResolver{
 		this.userRepository = userRepository;
 	}
 	
-	public Iterable<User> fetchAllUser(){
+	public Iterable<User> getAllUser(){
 		return userRepository.findAll();
 	}
 

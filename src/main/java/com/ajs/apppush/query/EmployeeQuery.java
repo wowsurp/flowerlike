@@ -17,7 +17,7 @@ public class EmployeeQuery implements GraphQLQueryResolver{
 		this.employeeRepository = employeeRepository;
 	}
 	
-	public Iterable<Employee> fetchAllEmployee(){
+	public Iterable<Employee> getAllEmployee(){
 		return employeeRepository.findAll();
 	}
 

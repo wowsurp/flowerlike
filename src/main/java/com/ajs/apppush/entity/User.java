@@ -49,10 +49,10 @@ public class User {
 	@Column(columnDefinition = "char(1)")
 	private String type;
 	
-	private long point;
+	private long point = 0;
 	
 	@Column(columnDefinition = "char(1)")
-	private String status;
+	private String status = "I";
 	
 	@Column(columnDefinition="char(19)")
 	private String regDtm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
