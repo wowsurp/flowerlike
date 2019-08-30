@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -62,4 +63,13 @@ public class Enterprise {
 	@OneToOne(targetEntity = EnterpriseAddress.class)
 	@JoinColumn(name="enterpriseIdx", referencedColumnName = "idx")
 	private List<EnterpriseAddress> enterpriseAddressList;
+	
+	@Transient
+	@OneToOne(targetEntity = WorkingHistory.class)
+	@JoinColumn(name="enterpriseIdx", referencedColumnName = "idx")
+	private List<WorkingHistory> workingHistoryList;
+	
+	@ManyToOne
+	@JoinColumn(name = "userId", referencedColumnName = "userId", insertable = false, updatable = false)
+	private User user;
 }

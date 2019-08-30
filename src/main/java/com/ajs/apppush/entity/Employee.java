@@ -42,7 +42,7 @@ public class Employee {
 	private String delYn;
 	
 	@Column(columnDefinition = "char(1)")
-	private String hireRequest;
+	private String requestAgreeYn;
 	
 	@Column(columnDefinition = "char(19)")
 	private String startDtm;
@@ -59,4 +59,8 @@ public class Employee {
 	@JoinColumn(name = "employeeIdx", referencedColumnName = "idx")
 	private List<Photo> photoList;
 
+	@ManyToOne
+	@JoinColumn(name = "userId", referencedColumnName = "userId", insertable = false, updatable = false)
+	private User user;
+	
 }

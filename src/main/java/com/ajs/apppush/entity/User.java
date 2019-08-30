@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -114,13 +113,27 @@ public class User {
 	private List<EnterpriseStar> enterpriseStarList;
 	
 	@Transient
-	@ManyToOne(targetEntity = PushNotification.class)
+	@OneToMany(targetEntity = PushNotification.class)
 	@JoinColumn(name = "sender", referencedColumnName = "userId")
 	private List<PushNotification> PushNotificationSenderList;
 	
 	@Transient
-	@ManyToOne(targetEntity = PushNotification.class)
+	@OneToMany(targetEntity = PushNotification.class)
 	@JoinColumn(name = "reciever", referencedColumnName = "userId")
 	private List<PushNotification> PushNotificationRecieverList;
 	
+	@Transient
+	@OneToMany(targetEntity = Enterprise.class)
+	@JoinColumn(name = "userId", referencedColumnName = "userId")
+	private List<Enterprise> enterpriseList;
+	
+	@Transient
+	@OneToMany(targetEntity = Employee.class)
+	@JoinColumn(name = "userId", referencedColumnName = "userId")
+	private List<Employee> employeeList;
+	
+	@Transient
+	@OneToMany(targetEntity = WorkingHistory.class)
+	@JoinColumn(name = "employeeId", referencedColumnName = "userId")
+	private List<WorkingHistory> workingHistoryList;
 }

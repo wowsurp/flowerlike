@@ -49,7 +49,7 @@ public class EmployeeMutation implements GraphQLMutationResolver{
 			employee.setIntroduction(employeeInput.getIntroduction());
 			employee.setWorkingHours(employeeInput.getWorkingHours());
 			employee.setDelYn(employeeInput.getDelYn());
-			employee.setHireRequest(employeeInput.getHireRequest());
+			employee.setRequestAgreeYn(employeeInput.getRequestAgreeYn());
 			employee.setStartDtm(employeeInput.getStartDtm());
 			employee.setEndDtm(employeeInput.getEndDtm());
 			
@@ -63,7 +63,7 @@ public class EmployeeMutation implements GraphQLMutationResolver{
 			employee.setIntroduction(employeeInput.getIntroduction());
 			employee.setWorkingHours(employeeInput.getWorkingHours());
 			employee.setDelYn(employeeInput.getDelYn());
-			employee.setHireRequest(employeeInput.getHireRequest());
+			employee.setRequestAgreeYn(employeeInput.getRequestAgreeYn());
 			employee.setStartDtm(employeeInput.getStartDtm());
 			employee.setEndDtm(employeeInput.getEndDtm());
 			
