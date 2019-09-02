@@ -1,5 +1,8 @@
 package com.ajs.apppush.entity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +38,7 @@ public class WorkingHistory {
 	private String employeeId;
 	
 	@Column(columnDefinition = "char(19)")
-	private String regDtm;
+	private String regDtm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 	
 	@ManyToOne
 	@JoinColumn(name = "employeeId", referencedColumnName = "userId", insertable = false, updatable = false)

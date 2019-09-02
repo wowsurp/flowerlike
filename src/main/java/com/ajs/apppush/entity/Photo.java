@@ -22,7 +22,7 @@ public class Photo {
 	
 	private int employeeIdx;
 	
-	@Column(length = 200)
+	@Column(columnDefinition = "LongBlob")
 	private String filePath;
 	
 	@OneToOne

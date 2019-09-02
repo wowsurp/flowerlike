@@ -1,0 +1,26 @@
+extend type Query {
+	getAllWorkingHistory: [WorkingHistory]
+	getWorkingHistory(idx:ID) : WorkingHistory
+}
+
+extend type Mutation {
+	saveWorkingHistory(workingHistory: SaveWorkingHistoryInput) : WorkingHistory
+}
+
+type WorkingHistory {
+	idx : ID!
+	enterpriseIdx : Int
+	enterpriseName : String
+	startDtm : String
+	endDtm : String
+	employeeId : String
+	regDtm : String
+}
+
+input SaveWorkingHistoryInput {
+	idx : ID
+	enterpriseIdx : Int
+	startDtm : String
+	endDtm : String
+	employeeId : String
+}

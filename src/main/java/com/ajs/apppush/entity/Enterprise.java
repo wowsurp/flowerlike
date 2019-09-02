@@ -30,7 +30,7 @@ public class Enterprise {
 	@Column(length = 50)
 	private String name;
 	
-	@Column(length = 200)
+	@Column(columnDefinition = "LongBlob")
 	private String thumbnail;
 	
 	@Column(columnDefinition="char(19)")

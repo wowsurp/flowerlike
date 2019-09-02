@@ -39,7 +39,7 @@ public class User {
 	@Column(length = 200)
 	private String token;
 	
-	@Column(length = 200)
+	@Column(columnDefinition = "LongBlob")
 	private String profile;
 	
 	@Column(length = 20)
