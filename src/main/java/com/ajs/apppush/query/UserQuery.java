@@ -1,5 +1,7 @@
 package com.ajs.apppush.query;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +21,19 @@ public class UserQuery implements GraphQLQueryResolver{
 	
 	public Iterable<User> getAllUser(){
 		return userRepository.findAll();
+	}
+	
+	public User getUser(String userId) {
+		
+		User user = null;
+		
+		Optional<User> opUser = userRepository.findById(userId);
+		
+		if(opUser.isPresent()) {
+			user = opUser.get();
+		}
+		
+		return user;
 	}
 
 }

@@ -2,10 +2,10 @@ package com.ajs.apppush.mutation;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.ajs.apppush.entity.User;
-import com.ajs.apppush.input.UserInput.GetUserInput;
 import com.ajs.apppush.input.UserInput.SaveUserInput;
 import com.ajs.apppush.repository.UserRepository;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
@@ -13,6 +13,7 @@ import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 @Component
 public class UserMutation implements GraphQLMutationResolver{
 
+	@Autowired
 	private UserRepository userRepository;
 	
 	public UserMutation(UserRepository userRepository) {
@@ -53,18 +54,5 @@ public class UserMutation implements GraphQLMutationResolver{
 		}
 		
 		return userRepository.save(user);
-	}
-	
-	public User getUser(GetUserInput userInput) {
-		
-		User user = null;
-		
-		Optional<User> opUser = userRepository.findById(userInput.getUserId());
-		
-		if(opUser.isPresent()) {
-			user = opUser.get();
-		}
-		
-		return user;
 	}
 }

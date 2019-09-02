@@ -1,5 +1,7 @@
 package com.ajs.apppush.entity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -39,16 +41,13 @@ public class Employee {
 	private String workingHours;
 	
 	@Column(columnDefinition = "char(1)")
-	private String delYn;
+	private String delYn = "N";
 	
 	@Column(columnDefinition = "char(1)")
 	private String requestAgreeYn;
 	
-	@Column(columnDefinition = "char(19)")
-	private String startDtm;
-	
-	@Column(columnDefinition = "char(19)")
-	private String endDtm;
+	@Column(columnDefinition="char(19)")
+	private String regDtm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 	
 	@ManyToOne
 	@JoinColumn(name = "enterpriseIdx", referencedColumnName = "idx", insertable = false, updatable = false)

@@ -1,14 +1,14 @@
 extend type Query {
 	getAllEmployee: [Employee]
+	getEmployee(idx:ID) : Employee
 }
 
 extend type Mutation {
-	getEmployee(employee: GetEmployeeInput) : Employee
 	saveEmployee(employee: SaveEmployeeInput) : Employee
 }
 
 type Employee {
-	idx : Int
+	idx : ID!
 	enterpriseIdx : Int
 	userId : String
 	nickNm : String
@@ -16,16 +16,11 @@ type Employee {
 	workingHours : String
 	delYn : String
 	requestAgreeYn : String
-	startDtm : String
-	endDtm : String
-}
-
-input GetEmployeeInput {
-	idx : Int
+	regDtm : String
 }
 
 input SaveEmployeeInput {
-	idx : Int
+	idx : ID
 	enterpriseIdx : Int
 	userId : String
 	nickNm : String
@@ -33,6 +28,4 @@ input SaveEmployeeInput {
 	workingHours : String
 	delYn : String
 	requestAgreeYn : String
-	startDtm : String
-	endDtm : String
 }

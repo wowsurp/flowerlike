@@ -17,7 +17,5 @@ public class SaveEmployeeInput {
 	private String workingHours;
 	private String delYn;
 	private String requestAgreeYn;
-	private String startDtm;
-	private String endDtm;
 	
 }

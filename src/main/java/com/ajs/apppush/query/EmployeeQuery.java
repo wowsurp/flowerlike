@@ -1,5 +1,7 @@
 package com.ajs.apppush.query;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,4 +23,18 @@ public class EmployeeQuery implements GraphQLQueryResolver{
 		return employeeRepository.findAll();
 	}
 
+	public Employee getEmployee(int idx) {
+		
+		Employee employee = null;
+		
+		Optional<Employee> opEmployee = employeeRepository.findById(idx);
+		
+		if(opEmployee.isPresent()) {
+			employee = opEmployee.get();
+		}
+		
+		return employee;
+		
+	}
+	
 }
