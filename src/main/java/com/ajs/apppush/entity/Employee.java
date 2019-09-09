@@ -61,5 +61,103 @@ public class Employee {
 	@ManyToOne
 	@JoinColumn(name = "userId", referencedColumnName = "userId", insertable = false, updatable = false)
 	private User user;
+
+	public int getIdx() {
+		return idx;
+	}
+
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+
+	public int getEnterpriseIdx() {
+		return enterpriseIdx;
+	}
+
+	public void setEnterpriseIdx(int enterpriseIdx) {
+		this.enterpriseIdx = enterpriseIdx;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getNickNm() {
+		return nickNm;
+	}
+
+	public void setNickNm(String nickNm) {
+		this.nickNm = nickNm;
+	}
+
+	public String getIntroduction() {
+		return introduction;
+	}
+
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
+	}
+
+	public String getWorkingHours() {
+		return workingHours;
+	}
+
+	public void setWorkingHours(String workingHours) {
+		this.workingHours = workingHours;
+	}
+
+	public String getDelYn() {
+		return delYn;
+	}
+
+	public void setDelYn(String delYn) {
+		this.delYn = delYn;
+	}
+
+	public String getRequestAgreeYn() {
+		return requestAgreeYn;
+	}
+
+	public void setRequestAgreeYn(String requestAgreeYn) {
+		this.requestAgreeYn = requestAgreeYn;
+	}
+
+	public String getRegDtm() {
+		return regDtm;
+	}
+
+	public void setRegDtm(String regDtm) {
+		this.regDtm = regDtm;
+	}
+
+	public Enterprise getEnterprise() {
+		return enterprise;
+	}
+
+	public void setEnterprise(Enterprise enterprise) {
+		this.enterprise = enterprise;
+	}
+
+	public List<Photo> getPhotoList() {
+		return photoList;
+	}
+
+	public void setPhotoList(List<Photo> photoList) {
+		this.photoList = photoList;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
 	
 }

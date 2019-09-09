@@ -47,4 +47,78 @@ public class WorkingHistory {
 	@ManyToOne
 	@JoinColumn(name = "enterpriseIdx", referencedColumnName = "idx", insertable = false, updatable = false)
 	private Enterprise enterprise;
+
+	public int getIdx() {
+		return idx;
+	}
+
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+
+	public int getEnterpriseIdx() {
+		return enterpriseIdx;
+	}
+
+	public void setEnterpriseIdx(int enterpriseIdx) {
+		this.enterpriseIdx = enterpriseIdx;
+	}
+
+	public String getEnterpriseName() {
+		return enterpriseName;
+	}
+
+	public void setEnterpriseName(String enterpriseName) {
+		this.enterpriseName = enterpriseName;
+	}
+
+	public String getStartDtm() {
+		return startDtm;
+	}
+
+	public void setStartDtm(String startDtm) {
+		this.startDtm = startDtm;
+	}
+
+	public String getEndDtm() {
+		return endDtm;
+	}
+
+	public void setEndDtm(String endDtm) {
+		this.endDtm = endDtm;
+	}
+
+	public String getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public String getRegDtm() {
+		return regDtm;
+	}
+
+	public void setRegDtm(String regDtm) {
+		this.regDtm = regDtm;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Enterprise getEnterprise() {
+		return enterprise;
+	}
+
+	public void setEnterprise(Enterprise enterprise) {
+		this.enterprise = enterprise;
+	}
+	
+	
 }

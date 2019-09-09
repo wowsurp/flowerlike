@@ -136,4 +136,222 @@ public class User {
 	@OneToMany(targetEntity = WorkingHistory.class)
 	@JoinColumn(name = "employeeId", referencedColumnName = "userId")
 	private List<WorkingHistory> workingHistoryList;
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getNickNm() {
+		return nickNm;
+	}
+
+	public void setNickNm(String nickNm) {
+		this.nickNm = nickNm;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
+
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public long getPoint() {
+		return point;
+	}
+
+	public void setPoint(long point) {
+		this.point = point;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getRegDtm() {
+		return regDtm;
+	}
+
+	public void setRegDtm(String regDtm) {
+		this.regDtm = regDtm;
+	}
+
+	public String getDevice() {
+		return device;
+	}
+
+	public void setDevice(String device) {
+		this.device = device;
+	}
+
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
+
+	public List<Order> getOrderList() {
+		return orderList;
+	}
+
+	public void setOrderList(List<Order> orderList) {
+		this.orderList = orderList;
+	}
+
+	public List<Donation> getFromIdList() {
+		return fromIdList;
+	}
+
+	public void setFromIdList(List<Donation> fromIdList) {
+		this.fromIdList = fromIdList;
+	}
+
+	public List<Donation> getToIdList() {
+		return toIdList;
+	}
+
+	public void setToIdList(List<Donation> toIdList) {
+		this.toIdList = toIdList;
+	}
+
+	public List<EmployeeLike> getEmployeeLikeUserIdList() {
+		return employeeLikeUserIdList;
+	}
+
+	public void setEmployeeLikeUserIdList(List<EmployeeLike> employeeLikeUserIdList) {
+		this.employeeLikeUserIdList = employeeLikeUserIdList;
+	}
+
+	public List<EmployeeLike> getEmployeeLikeEmployeeUserIdList() {
+		return employeeLikeEmployeeUserIdList;
+	}
+
+	public void setEmployeeLikeEmployeeUserIdList(List<EmployeeLike> employeeLikeEmployeeUserIdList) {
+		this.employeeLikeEmployeeUserIdList = employeeLikeEmployeeUserIdList;
+	}
+
+	public List<EmployeeStar> getEmployeeStarUserIdList() {
+		return employeeStarUserIdList;
+	}
+
+	public void setEmployeeStarUserIdList(List<EmployeeStar> employeeStarUserIdList) {
+		this.employeeStarUserIdList = employeeStarUserIdList;
+	}
+
+	public List<EmployeeStar> getEmployeeStarEmployeeUserIdList() {
+		return employeeStarEmployeeUserIdList;
+	}
+
+	public void setEmployeeStarEmployeeUserIdList(List<EmployeeStar> employeeStarEmployeeUserIdList) {
+		this.employeeStarEmployeeUserIdList = employeeStarEmployeeUserIdList;
+	}
+
+	public List<Contents> getContentsList() {
+		return contentsList;
+	}
+
+	public void setContentsList(List<Contents> contentsList) {
+		this.contentsList = contentsList;
+	}
+
+	public List<EnterpriseLike> getEnterpriseLikeList() {
+		return enterpriseLikeList;
+	}
+
+	public void setEnterpriseLikeList(List<EnterpriseLike> enterpriseLikeList) {
+		this.enterpriseLikeList = enterpriseLikeList;
+	}
+
+	public List<EnterpriseStar> getEnterpriseStarList() {
+		return enterpriseStarList;
+	}
+
+	public void setEnterpriseStarList(List<EnterpriseStar> enterpriseStarList) {
+		this.enterpriseStarList = enterpriseStarList;
+	}
+
+	public List<PushNotification> getPushNotificationSenderList() {
+		return PushNotificationSenderList;
+	}
+
+	public void setPushNotificationSenderList(List<PushNotification> pushNotificationSenderList) {
+		PushNotificationSenderList = pushNotificationSenderList;
+	}
+
+	public List<PushNotification> getPushNotificationRecieverList() {
+		return PushNotificationRecieverList;
+	}
+
+	public void setPushNotificationRecieverList(List<PushNotification> pushNotificationRecieverList) {
+		PushNotificationRecieverList = pushNotificationRecieverList;
+	}
+
+	public List<Enterprise> getEnterpriseList() {
+		return enterpriseList;
+	}
+
+	public void setEnterpriseList(List<Enterprise> enterpriseList) {
+		this.enterpriseList = enterpriseList;
+	}
+
+	public List<Employee> getEmployeeList() {
+		return employeeList;
+	}
+
+	public void setEmployeeList(List<Employee> employeeList) {
+		this.employeeList = employeeList;
+	}
+
+	public List<WorkingHistory> getWorkingHistoryList() {
+		return workingHistoryList;
+	}
+
+	public void setWorkingHistoryList(List<WorkingHistory> workingHistoryList) {
+		this.workingHistoryList = workingHistoryList;
+	}
+	
+	
 }
