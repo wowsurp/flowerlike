@@ -1,10 +1,6 @@
 package com.ajs.apppush.mutation;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Properties;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,42 +25,28 @@ public class UserMutation implements GraphQLMutationResolver{
 	}
 	
 	public User saveUser(SaveUserInput userInput) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+		User user = userRepository.findById(userInput.getUserId())
+				.orElseGet(() -> getUser(userInput));
 		
-		User user = null;
+		User newUser = (User)reflectionUtil.overWriteProperties(user, userInput);
+
+		return userRepository.save(newUser);
+	}
+	
+	private User getUser(SaveUserInput userInput) {
+		User user = new User();
+
+		user.setUserId(userInput.getUserId());
+		user.setNickNm(userInput.getNickNm());
+		user.setEmail(userInput.getEmail());
+		user.setToken(userInput.getToken());
+		user.setProfile(userInput.getProfile());
+		user.setGrade(userInput.getGrade());
+		user.setType(userInput.getType());
+		user.setDevice(userInput.getDevice());
+		user.setIntro(userInput.getIntro());
 		
-		Optional<User> opUser = userRepository.findById(userInput.getUserId());
-		Properties prop = new Properties();
-		
-		reflectionUtil.overWriteProperties(opUser, userInput);
-		
-		
-		if(opUser.isPresent()) {
-			
-			user = opUser.get();
-			
-			user.setNickNm(userInput.getNickNm());
-			user.setEmail(userInput.getEmail());
-			user.setToken(userInput.getToken());
-			user.setProfile(userInput.getProfile());
-			user.setDevice(userInput.getDevice());
-			user.setIntro(userInput.getIntro());
-			
-		} else {
-			
-			user = new User();
-			
-			user.setUserId(userInput.getUserId());
-			user.setNickNm(userInput.getNickNm());
-			user.setEmail(userInput.getEmail());
-			user.setToken(userInput.getToken());
-			user.setProfile(userInput.getProfile());
-			user.setGrade(userInput.getGrade());
-			user.setType(userInput.getType());
-			user.setDevice(userInput.getDevice());
-			user.setIntro(userInput.getIntro());
-			
-		}
-		
-		return userRepository.save(user);
+		return user;
 	}
 }

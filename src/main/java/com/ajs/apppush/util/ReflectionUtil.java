@@ -35,7 +35,11 @@ public class ReflectionUtil {
 	}
 
 	private void callSetters(String targetFieldNm, Object originObj, Object value) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-
+		
+		if(value == null) {
+			return;
+		}
+		
 		Class originObjClass = originObj.getClass();
 
 		Method[] originObjMethodArr = originObjClass.getMethods();
