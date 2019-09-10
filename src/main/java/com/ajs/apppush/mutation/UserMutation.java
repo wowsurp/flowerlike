@@ -27,26 +27,11 @@ public class UserMutation implements GraphQLMutationResolver{
 	public User saveUser(SaveUserInput userInput) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
 		User user = userRepository.findById(userInput.getUserId())
-				.orElseGet(() -> getUser(userInput));
+				.orElseGet(() -> new User());
 		
 		User newUser = (User)reflectionUtil.overWriteProperties(user, userInput);
 
 		return userRepository.save(newUser);
 	}
 	
-	private User getUser(SaveUserInput userInput) {
-		User user = new User();
-
-		user.setUserId(userInput.getUserId());
-		user.setNickNm(userInput.getNickNm());
-		user.setEmail(userInput.getEmail());
-		user.setToken(userInput.getToken());
-		user.setProfile(userInput.getProfile());
-		user.setGrade(userInput.getGrade());
-		user.setType(userInput.getType());
-		user.setDevice(userInput.getDevice());
-		user.setIntro(userInput.getIntro());
-		
-		return user;
-	}
 }
