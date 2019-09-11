@@ -32,6 +32,5 @@ public class UserMutation implements GraphQLMutationResolver{
 		User newUser = (User)reflectionUtil.overWriteProperties(user, userInput);
 
 		return userRepository.save(newUser);
-	}
-	
+	}	
 }

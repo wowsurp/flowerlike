@@ -12,7 +12,9 @@ public class SaveUserInput {
 	private String userId;
 	private String nickNm;
 	private String email;
-	private String token;
+	private String pushToken;
+	private String refreshToken;
+	private String accessToken;
 	private String profile;
 	private String grade;
 	private String type;
@@ -38,12 +40,6 @@ public class SaveUserInput {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getToken() {
-		return token;
-	}
-	public void setToken(String token) {
-		this.token = token;
 	}
 	public String getProfile() {
 		return profile;
@@ -92,6 +88,24 @@ public class SaveUserInput {
 	}
 	public void setIntro(String intro) {
 		this.intro = intro;
+	}
+	public String getPushToken() {
+		return pushToken;
+	}
+	public void setPushToken(String pushToken) {
+		this.pushToken = pushToken;
+	}
+	public String getRefreshToken() {
+		return refreshToken;
+	}
+	public void setRefreshToken(String refreshToken) {
+		this.refreshToken = refreshToken;
+	}
+	public String getAccessToken() {
+		return accessToken;
+	}
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
 	}
 	
 	

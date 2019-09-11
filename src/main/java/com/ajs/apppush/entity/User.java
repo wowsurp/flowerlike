@@ -14,15 +14,11 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.DynamicUpdate;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @DynamicUpdate
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name="tb_user")
 public class User {
 
@@ -37,7 +33,10 @@ public class User {
 	private String email;
 	
 	@Column(length = 200)
-	private String token;
+	private String pushToken;
+	
+	@Column(length = 200)
+	private String refreshToken;
 	
 	@Column(columnDefinition = "LongBlob")
 	private String profile;
@@ -61,6 +60,9 @@ public class User {
 	
 	@Column(length = 1000)
 	private String intro;
+	
+	@Transient
+	private String accessToken;
 	
 	@Transient
 	@OneToMany(targetEntity = Order.class)
@@ -161,12 +163,20 @@ public class User {
 		this.email = email;
 	}
 
-	public String getToken() {
-		return token;
+	public String getPushToken() {
+		return pushToken;
 	}
 
-	public void setToken(String token) {
-		this.token = token;
+	public void setPushToken(String pushToken) {
+		this.pushToken = pushToken;
+	}
+
+	public String getRefreshToken() {
+		return refreshToken;
+	}
+
+	public void setRefreshToken(String refreshToken) {
+		this.refreshToken = refreshToken;
 	}
 
 	public String getProfile() {

@@ -11,10 +11,11 @@ type User {
 	userId: ID!
 	nickNm: String
 	email: String
-	token: String
 	profile: String
 	grade: String
-	type: String
+	pushToken : String
+	refreshToken : String
+	accessToken : String
 	point: Long
 	status: String
 	regDtm: String
@@ -26,7 +27,9 @@ input SaveUserInput {
 	userId: ID!
 	nickNm: String
 	email: String
-	token: String
+	pushToken : String
+	refreshToken : String
+	accessToken : String
 	profile: String
 	grade: String
 	point: Long

@@ -8,7 +8,7 @@ spring:
       hibernate.format_sql: true
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     
@@ -21,3 +21,7 @@ graphiql:
  endpoint:
   graphql: /graphql
  mapping: /graphiql
+ 
+grokonez:
+ app:
+  jwtSecret: xuIdQGSUNtACY2T0mQO1j0xKGaEL506f5H2eZx6F7vZI5VmFh/QJMLxgQNhn8sJyrXLGmoPp9HUauexWaez1jw==
