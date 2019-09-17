@@ -1,4 +1,4 @@
-package com.ajs.apppush.input.UserInput;
+package com.ajs.apppush.input.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SaveUserInput {
+public class SaveUser {
 
 	private String userId;
 	private String nickNm;

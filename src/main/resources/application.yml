@@ -12,16 +12,6 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     
-graphql:
- servlet:
-  mapping: /graphql
-  enabled: true
-
-graphiql:
- endpoint:
-  graphql: /graphql
- mapping: /graphiql
- 
 grokonez:
  app:
   jwtSecret: xuIdQGSUNtACY2T0mQO1j0xKGaEL506f5H2eZx6F7vZI5VmFh/QJMLxgQNhn8sJyrXLGmoPp9HUauexWaez1jw==

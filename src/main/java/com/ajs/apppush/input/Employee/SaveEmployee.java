@@ -1,4 +1,4 @@
-package com.ajs.apppush.input.EmployeeInput;
+package com.ajs.apppush.input.Employee;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SaveEmployeeInput {
+public class SaveEmployee {
 
 	private int idx;
 	private int enterpriseIdx;

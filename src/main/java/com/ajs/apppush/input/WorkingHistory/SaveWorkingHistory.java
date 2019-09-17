@@ -1,4 +1,4 @@
-package com.ajs.apppush.input.WorkingHistoryInput;
+package com.ajs.apppush.input.WorkingHistory;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SaveWorkingHistoryInput {
+public class SaveWorkingHistory {
 
 	private int idx;
 	private int enterpriseIdx;

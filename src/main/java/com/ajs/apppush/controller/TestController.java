@@ -23,7 +23,6 @@ public class TestController {
 		params.put("to", "ExponentPushToken[bMrhhHFbkC6Bh5LvD4CYme]");
 		params.put("title", "hello");
 		params.put("body", "world");
-		
 		return httpSender.sendAppPush(url, params);
 	}
 
