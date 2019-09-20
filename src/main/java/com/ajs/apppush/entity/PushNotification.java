@@ -30,10 +30,10 @@ public class PushNotification {
 	private String link;
 	
 	@Column(columnDefinition = "char(10)")
-	private String snedDt;
+	private String sendDt;
 	
 	@Column(columnDefinition = "char(2)")
-	private String snedHour;
+	private String sendHour;
 	
 	@Column(columnDefinition = "char(2)")
 	private String sendMinute;

@@ -12,8 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ajs.apppush.service.ContentsService;
 import com.ajs.apppush.service.DonationService;
+import com.ajs.apppush.service.EmployeeLikeService;
 import com.ajs.apppush.service.EmployeeService;
+import com.ajs.apppush.service.EmployeeStarService;
+import com.ajs.apppush.service.EnterpriseAddressService;
+import com.ajs.apppush.service.EnterpriseLikeService;
 import com.ajs.apppush.service.EnterpriseService;
+import com.ajs.apppush.service.EnterpriseStarService;
+import com.ajs.apppush.service.OrderService;
+import com.ajs.apppush.service.PhotoService;
+import com.ajs.apppush.service.PushNotificationService;
 import com.ajs.apppush.service.UserService;
 import com.ajs.apppush.service.WorkingHistoryService;
 
@@ -32,11 +40,20 @@ public class GraphQLController {
     							EnterpriseService enterpriseService,
     							WorkingHistoryService workingHistoryService,
     							ContentsService contentsService,
-    							DonationService donationService) {
+    							DonationService donationService,
+    							OrderService orderService,
+    							PhotoService photoService,
+    							PushNotificationService pushNotificationService,
+    							EmployeeLikeService employeeLikeService,
+    							EmployeeStarService employeeStarService,
+    							EnterpriseAddressService enterpriseAddressService,
+    							EnterpriseLikeService enterpriseLikeService,
+    							EnterpriseStarService enterpriseStarService) {
         GraphQLSchema schema = new GraphQLSchemaGenerator()
         		.withBasePackages("com.ajs.apppush")
                 .withOperationsFromSingletons(	userService, employeeService, enterpriseService, workingHistoryService, contentsService,
-                								donationService)
+                								donationService, orderService, photoService, pushNotificationService, employeeLikeService,
+                								employeeStarService, enterpriseAddressService, enterpriseLikeService, enterpriseStarService)
                 .generate();
 
         graphQL = GraphQL.newGraphQL(schema).build();
