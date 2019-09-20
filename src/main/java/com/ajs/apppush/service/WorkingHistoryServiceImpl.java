@@ -1,6 +1,7 @@
 package com.ajs.apppush.service;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ajs.apppush.entity.Enterprise;
 import com.ajs.apppush.entity.WorkingHistory;
-import com.ajs.apppush.input.WorkingHistory.SaveWorkingHistory;
+import com.ajs.apppush.input.workingHistory.SaveWorkingHistory;
 import com.ajs.apppush.repository.EnterpriseRepository;
 import com.ajs.apppush.repository.WorkingHistoryRepository;
 import com.ajs.apppush.util.ReflectionUtil;
@@ -27,6 +28,12 @@ public class WorkingHistoryServiceImpl implements WorkingHistoryService{
 	
 	@Autowired
 	private ReflectionUtil reflectionUtil;
+	
+	@Override
+	@GraphQLQuery(name= "getAllWorkingHistory")
+	public List<WorkingHistory> getAllWorkingHistory() {
+		return workingHistoryRepository.findAll();
+	}
 	
 	@Override
 	@GraphQLQuery(name = "getWorkingHistory")

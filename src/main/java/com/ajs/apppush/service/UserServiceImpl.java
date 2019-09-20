@@ -1,6 +1,7 @@
 package com.ajs.apppush.service;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -10,13 +11,11 @@ import org.springframework.stereotype.Service;
 
 import com.ajs.apppush.entity.User;
 import com.ajs.apppush.exception.InvalidCredentialsException;
-import com.ajs.apppush.input.User.SaveUser;
+import com.ajs.apppush.input.user.SaveUser;
 import com.ajs.apppush.repository.UserRepository;
 import com.ajs.apppush.security.jwt.JwtTokenUtil;
 import com.ajs.apppush.util.ReflectionUtil;
 
-import io.leangen.graphql.annotations.GraphQLContext;
-import io.leangen.graphql.annotations.GraphQLInputField;
 import io.leangen.graphql.annotations.GraphQLMutation;
 import io.leangen.graphql.annotations.GraphQLQuery;
 
@@ -33,6 +32,12 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;
+	
+	@Override
+	@GraphQLQuery(name = "getAllUser")
+	public List<User> getAllUser() {
+		return userRepository.findAll();
+	}
 	
 	@Override
 	@GraphQLQuery(name = "getUser")

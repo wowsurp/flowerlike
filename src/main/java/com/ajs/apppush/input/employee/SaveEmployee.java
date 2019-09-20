@@ -1,4 +1,4 @@
-package com.ajs.apppush.input.Employee;
+package com.ajs.apppush.input.employee;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

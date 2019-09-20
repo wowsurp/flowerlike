@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ajs.apppush.service.ContentsService;
+import com.ajs.apppush.service.DonationService;
 import com.ajs.apppush.service.EmployeeService;
 import com.ajs.apppush.service.EnterpriseService;
 import com.ajs.apppush.service.UserService;
@@ -28,10 +30,13 @@ public class GraphQLController {
     public GraphQLController(	UserService userService,
     							EmployeeService employeeService,
     							EnterpriseService enterpriseService,
-    							WorkingHistoryService workingHistoryService) {
+    							WorkingHistoryService workingHistoryService,
+    							ContentsService contentsService,
+    							DonationService donationService) {
         GraphQLSchema schema = new GraphQLSchemaGenerator()
         		.withBasePackages("com.ajs.apppush")
-                .withOperationsFromSingletons(userService, employeeService, enterpriseService, workingHistoryService)
+                .withOperationsFromSingletons(	userService, employeeService, enterpriseService, workingHistoryService, contentsService,
+                								donationService)
                 .generate();
 
         graphQL = GraphQL.newGraphQL(schema).build();

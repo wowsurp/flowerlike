@@ -1,13 +1,14 @@
 package com.ajs.apppush.service;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ajs.apppush.entity.Employee;
-import com.ajs.apppush.input.Employee.SaveEmployee;
+import com.ajs.apppush.input.employee.SaveEmployee;
 import com.ajs.apppush.repository.EmployeeRepository;
 import com.ajs.apppush.util.ReflectionUtil;
 
@@ -22,6 +23,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 	
 	@Autowired
 	private ReflectionUtil reflectionUtil;
+	
+	@Override
+	@GraphQLQuery(name = "getAllEmployee")
+	public List<Employee> getAllEmployee() {
+		return employeeRespository.findAll();
+	}
 	
 	@Override
 	@GraphQLQuery(name = "getEmployee")

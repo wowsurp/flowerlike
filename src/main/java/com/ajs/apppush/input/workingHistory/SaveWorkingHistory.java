@@ -1,4 +1,4 @@
-package com.ajs.apppush.input.WorkingHistory;
+package com.ajs.apppush.input.workingHistory;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

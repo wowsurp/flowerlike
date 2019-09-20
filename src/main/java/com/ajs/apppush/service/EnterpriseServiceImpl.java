@@ -1,13 +1,14 @@
 package com.ajs.apppush.service;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ajs.apppush.entity.Enterprise;
-import com.ajs.apppush.input.Enterprise.SaveEnterprise;
+import com.ajs.apppush.input.enterprise.SaveEnterprise;
 import com.ajs.apppush.repository.EnterpriseRepository;
 import com.ajs.apppush.util.ReflectionUtil;
 
@@ -22,6 +23,12 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	
 	@Autowired
 	private ReflectionUtil reflectionUtil;
+	
+	@Override
+	@GraphQLQuery(name = "getAllEnterprise")
+	public List<Enterprise> getAllEnterprise() {
+		return enterpriseRepository.findAll();
+	}
 	
 	@Override
 	@GraphQLQuery(name = "getEnterprise")
